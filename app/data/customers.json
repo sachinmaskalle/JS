@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Cisco India",
+        "address": "Bangalore"
+    },
+    {
+        "id": 2,
+        "name": "Expedia India",
+        "address": "Delhi"
+    },
+    {
+        "id": 3,
+        "name": "Pega India",
+        "address": "Chennai"
+    },
+    {
+        "id": 4,
+        "name": "Amazon India",
+        "address": "Pune"
+    }
+]

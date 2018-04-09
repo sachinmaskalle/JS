@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="card card-default">
+  <div class="card-body">
+          
+    <div class="row">
+		<div class="col-lg-2">
+			<div class="form-group">
+			<label>Source System</label>
+				<input type="text" class="form-control" id=""  placeholder="Source System">
+			</div>
+		</div>
+		
+		<div class="col-lg-2">
+			<div class="form-group">
+			<label>Service Code</label>
+				<input type="text" class="form-control" id=""  placeholder="Service Code">
+			</div>
+		</div>
+		
+		<div class="col-lg-2">
+			<div class="form-group">
+			<label>GLBank Num</label>
+				<input type="text" class="form-control" id=""  placeholder="GL Rev Bank Number">
+			</div>
+		</div>
+		
+		<div class="col-lg-1">
+			<div class="form-group">
+				<label>Comments</label>
+				<input type="text" class="form-control" id=""  placeholder="Comments">
+			</div>
+		</div>
+		
+		<div class="col-lg-1">
+			<div class="form-group">
+			<label>Flag</label>
+				<select class="form-control" id="">
+					<option value="NO">NO</option>
+					<option value="YES">YES</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="form-group">
+			<label>Event Description</label>
+				<select class="form-control" id="">
+					<option value="NO">NO</option>
+					<option value="YES">YES</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-lg-1">
+			<div class="form-group">
+			<label>Event ID</label>
+				<input type="text" class="form-control" id="" readonly>
+			</div>
+		</div>
+		<div class="col-lg-1">
+			<!-- <div class="input-group"> -->
+			<label>Add</label>
+				<div class="input-group-append">
+					<button type="button" class="btn btn-primary" onclick="add_fields();"><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			<!-- </div> -->
+		</div>
+		
+	</div> <!-- row end -->
+	<div id="add_row">
+          
+    </div>
+  </div>
+  
+  
+</div> 
+</div>
+
+
+<script>
+var flag = 1;
+function add_fields() {
+ 
+    flag++;
+    var objTo = document.getElementById('add_row');
+    var div_new = document.createElement("div");
+	div_new.setAttribute("class", "form-group removeclass"+flag);
+	var rdiv = 'removeclass'+flag;
+    
+    div_new.innerHTML = '<div class="row"><div class="col-lg-2"><div class="form-group">'+
+	'<input type="text" class="form-control" id=""  placeholder="Source System"></div></div>'+
+	'<div class="col-lg-2"><div class="form-group">'+
+	'<input type="text" class="form-control" id=""  placeholder="Service Code"></div></div>'+
+	'<div class="col-lg-2"><div class="form-group">'+
+	'<input type="text" class="form-control" id=""  placeholder="GL Rev Bank Number"></div></div>'+
+	'<div class="col-lg-1"><div class="form-group"><input type="text" class="form-control" id=""  placeholder="Comments">'+
+	'</div></div><div class="col-lg-1"><div class="form-group"><select class="form-control" id=""><option value="NO">NO</option>'+
+	'<option value="YES">YES</option></select></div></div><div class="col-lg-2"><div class="form-group">'+
+	'<select class="form-control" id=""><option value="NO">NO</option><option value="YES">YES</option></select></div></div>'+
+	'<div class="col-lg-1"><div class="form-group"><input type="text" class="form-control" id="" readonly></div></div>'+
+	'<div class="col-lg-1"><div class="input-group">'+
+	'<button type="button" class="btn btn-danger" onclick="remove_add_fields('+ flag +');">'+
+	'<i class="fa fa-times" aria-hidden="true"></i></button></div></div></div>';
+			
+    objTo.appendChild(div_new)
+}
+   function remove_add_fields(removeflag) {
+	   $('.removeclass'+removeflag).remove();
+   }
+</script>
+</body>
+</html>

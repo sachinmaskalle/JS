@@ -1,173 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
-<div class="container">
-	<form  id="target" class="needs-validation" novalidate>
+    <div class="container">
+        <form id="target" class="needs-validation" novalidate>
 
-    	<div class="form-row" id="add_row">
-		<div class="col-lg-2">
-			<label>Source System</label>
-			<select class="custom-select" name="SS" required>
-					<option value="XAA">XAA</option>
-					<option value="RMB">RMB</option>
-			</select>
-			<div class="invalid-feedback">Please select valid option</div>
-		</div>
-		
-		<div class="col-lg-2">
-				<label for="validationCustom01">Service Code</label>
-				<input type="text" class="form-control" id="validationCustom01" placeholder="Service Code" name="SC" required />
-				<!-- <div class="valid-feedback">Looks good!</div> -->
-		</div>
-		
-		<div class="col-lg-2">
-			<label for="validationCustom01">GLBank Num</label>
-			<input type="text" class="form-control" id="validationCustom02" placeholder="GLBank Num" name="GL" />
-		</div>
-		
-		<div class="col-lg-1">
-			<label for="validationCustom01">Comments</label>
-			<input type="text" class="form-control" id="validationCustom01" placeholder="Comments" name="COMM" required />
-			<!-- <div class="valid-feedback">Looks good!</div> -->
-		</div>
-		
-		<div class="col-lg-1">
-				<label>Flag</label>
-				<select class="custom-select" name="Flag">
-						<option value="NO">NO</option>
-						<option value="YES">YES</option>
-				</select>
-		</div>
-		<div class="col-lg-2">
-				<label>Event Description</label>
-				<select class="custom-select" name="Ed" required>
-						<option value="Select">Select</option>
-						<option value="One">One</option>
-				</select>
-				<div class="invalid-feedback">Please select valid option</div>
-		</div>
-		<div class="col-lg-1">
-			<label>Event ID</label>
-				<input type="text" class="form-control" id="" readonly />
-		</div>
-		<div class="col-lg-1">
-			<label>Add</label>
-				<div class="input-group-append">
-					<button type="button" class="btn btn-primary" onclick="add_fields();"><i class="fa fa-plus" aria-hidden="true"></i></button>
-				</div>
-		</div>
-	</div> <!-- row end -->
-	
-	<div class="form-row mt-4 float-right mr-4">
-			<input type="submit" value="Submit" class="btn btn-primary" id="submit_form_btn">
-	</div>
-</form>
-</div>  <!-- container end -->
+            <div class="form-row" id="add_row">
+                <div class="col-lg-2">
+                    <label>Source System</label>
+                    <select class="custom-select" id="s_system" required>
+                        <option value="XAA">XAA</option>
+                        <option value="RMB">RMB</option>
+                    </select>
+                    <div class="invalid-feedback">Please select valid option</div>
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="validationCustom01">Service Code</label>
+                    <input type="text" class="form-control service_code" id="validationCustom01" placeholder="Service Code" name="SC" required
+                    />
+                    <!-- <div class="valid-feedback">Looks good!</div> -->
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="validationCustom01">GLBank Num</label>
+                    <input type="text" class="form-control gl_num" id="validationCustom02" placeholder="GLBank Num" name="GL" />
+                </div>
+
+                <div class="col-lg-1">
+                    <label for="validationCustom01">Comments</label>
+                    <input type="text" class="form-control user_comments" id="validationCustom01" placeholder="Comments" name="COMM" required
+                    />
+                    <!-- <div class="valid-feedback">Looks good!</div> -->
+                </div>
+
+                <div class="col-lg-1">
+                    <label>Flag</label>
+                    <select class="custom-select caps_flag" name="Flag">
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label>Event Description</label>
+                    <select class="custom-select evt_desc" name="Ed" required>
+                        <option value="Select">Select</option>
+                        <option value="One">One</option>
+                    </select>
+                    <div class="invalid-feedback">Please select valid option</div>
+                </div>
+                <div class="col-lg-1">
+                    <label>Event ID</label>
+                    <input type="text" class="form-control evt_id" id="" readonly />
+                </div>
+                <div class="col-lg-1">
+                    <label>Add</label>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" onclick="add_fields();">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+
+            <div class="row mt-4 float-right mr-4">
+                <input type="submit" value="Submit" class="btn btn-primary" id="submit_form_btn" />
+            </div>
+        </form>
+    </div>
+    <!-- container end -->
 
 
-<script>
-var flag = 1;
-function add_fields() {
- 
-    flag++;
-    var objTo = document.getElementById('add_row');
-    var div_new = document.createElement("div");
-	div_new.setAttribute("class", "form-row mt-2 removeclass"+flag);
-	var rdiv = 'removeclass'+flag;
-    
-    div_new.innerHTML = `<div class="form-row">
-		<div class="col-lg-2">
-			<select class="custom-select" required>
-					<option value="XAA">XAA</option>
-					<option value="XAA">RMB</option>
-			</select>
-			<div class="invalid-feedback">Please select valid option</div>
-		</div>
-		
-		<div class="col-lg-2">
-				<input type="text" class="form-control" id="validationCustom01" placeholder="Service Code" required />
-		</div>
-		
-		<div class="col-lg-2">
-			
-			<input type="text" class="form-control" id="validationCustom02" placeholder="GLBank Num" />
-		</div>
-		
-		<div class="col-lg-1">
-			<input type="text" class="form-control" id="validationCustom03" placeholder="Comments" required />
-		</div>
-		
-		<div class="col-lg-1">
-				<select class="custom-select">
-						<option value="NO">NO</option>
-						<option value="YES">YES</option>
-				</select>
-		</div>
-		<div class="col-lg-2">
-				<select class="custom-select" required>
-						<option value="Select">Select</option>
-						<option value="One">One</option>
-				</select>
-				<div class="invalid-feedback">Please select valid option</div>
-		</div>
-		<div class="col-lg-1">
-		
-				<input type="text" class="form-control" id="" readonly />
-		</div>
-		<div class="col-lg-1">
-				<div class="input-group-append">
-					<button type="button" class="btn btn-danger" onclick="remove_add_fields(${flag});"><i class="fa fa-times" aria-hidden="true"></i></button>
-				</div>
-		</div>
-	</div>`;
-			
-    objTo.after(div_new);
-}
-   function remove_add_fields(removeflag) {
-	   $('.removeclass'+removeflag).remove();
-   }
+    <script>
+        var flag = 1;
+        var multi_row_arr = [];
 
-  (function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
+        function add_fields() {
+            flag++;
+            var objTo = document.getElementById('add_row');
+            var div_new = document.createElement("div");
+            div_new.setAttribute("class", "form-row mt-2 removeclass" + flag);
+            var rdiv = 'removeclass' + flag;
+
+            div_new.innerHTML = `<div class="col-lg-2">
+      
+                    <select class="custom-select" id="s_system" required>
+                        <option value="XAA">XAA</option>
+                        <option value="RMB">RMB</option>
+                    </select>
+                    <div class="invalid-feedback">Please select valid option</div>
+                </div>
+
+                <div class="col-lg-2">
+                    <input type="text" class="form-control service_code" id="validationCustom01" placeholder="Service Code" name="SC" required
+                    />
+                    <!-- <div class="valid-feedback">Looks good!</div> -->
+                </div>
+
+                <div class="col-lg-2">
+                  
+                    <input type="text" class="form-control gl_num" id="validationCustom02" placeholder="GLBank Num" name="GL" />
+                </div>
+
+                <div class="col-lg-1">
+                   
+                    <input type="text" class="form-control user_comments" id="validationCustom01" placeholder="Comments" name="COMM" required
+                    />
+                    <!-- <div class="valid-feedback">Looks good!</div> -->
+                </div>
+
+                <div class="col-lg-1">
+                  
+                    <select class="custom-select caps_flag" name="Flag">
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                   
+                    <select class="custom-select evt_desc" name="Ed" required>
+                        <option value="Select">Select</option>
+                        <option value="One">One</option>
+                    </select>
+                    <div class="invalid-feedback">Please select valid option</div>
+                </div>
+                <div class="col-lg-1">
+                   
+                    <input type="text" class="form-control evt_id" id="" readonly />
+                </div>
+                <div class="col-lg-1">
+                   
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-danger" onclick="remove_add_fields(${flag});"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </div>
+                </div>`;
+
+            objTo.after(div_new);
         }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+        function remove_add_fields(removeflag) {
+            $('.removeclass' + removeflag).remove();
+        }
 
-$( "#submit_form_btn" ).on( "click", function( e ) {
-	e.preventDefault();
-  });
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = multi_row_array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
 
-  
-</script>
+        $('form').submit(function (e) {
+            e.preventDefault();
+
+            $.each($(".form-row"),
+
+                function () {
+                    multi_row_arr.push({
+                        ssystem: $(this).children().find("#s_system :selected").text(),
+                        ser_code: $(this).children().find(".service_code").val(),
+                        gl_num: $(this).children().find(".gl_num").val(),
+                        usr_cmn: $(this).children().find(".user_comments").val(),
+                        caps_flag: $(this).children().find(".caps_flag :selected").text(),
+                        evt_desc: $(this).children().find(".evt_desc :selected").text()
+
+                    });
+                });
+
+            console.log("val---" + JSON.stringify(multi_row_arr));
+        });
+    </script>
 </body>
+
 </html>
